@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login</title>
+<link href="styles.css" rel="stylesheet" />
+<script src="formscript.js"></script>
+</head>
+<body>
+	<h2>Login</h2>
+	Please provide your username and password to login!
+	<p />
+	<form action="login" method="post" onsubmit="return validate()">
+		Username <br /> <input type="text" name="uname" id="uname" />
+		<span class="error" id="userError"></span>
+		<p />
+		Password <br /> <input type="password" name="password" />
+		<p />
+		<input type="submit" value="Login" />
+	</form>
+
+</body>
+</html>

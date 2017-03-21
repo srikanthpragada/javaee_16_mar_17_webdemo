@@ -1,0 +1,20 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	
+	font-family : verdana;
+	font-size : 12pt;
+}
+
+h2 
+{
+	color : blue;
+	font-family : arial;
+	font-weight : bold;
+	font-size : 20pt;
+}
+
+.error {
+	color : red;
+	font-weight : bold;
+}
