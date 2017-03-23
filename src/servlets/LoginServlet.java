@@ -16,7 +16,7 @@ public class LoginServlet extends HttpServlet {
 		PrintWriter pw = response.getWriter();
 		
 		String uname  = request.getParameter("uname");
-		String pwd  = request.getParameter("pwd");
+		String pwd  = request.getParameter("password");
 		
 		if (uname == null)
 		{
@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
 		
 		
 		if (uname.equals("admin") && pwd.equals("test"))
-			pw.write("<h1>Logged In Successfully!</h1>");
+			 response.sendRedirect("title");
 		else
 			pw.write("<h1>Invalid Login!</h1>");
 
