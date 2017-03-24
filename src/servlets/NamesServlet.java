@@ -1,7 +1,9 @@
 package servlets;
 
-import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,12 +15,16 @@ public class NamesServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String filename = this.getServletConfig().getInitParameter("filename");
-		String file = this.getServletContext().getRealPath(filename); // Physical path
+		String pfile = this.getServletContext().getRealPath(filename); // Physical path
 		
-
+        Path  path = Paths.get(pfile);
+        StringBuffer output = new StringBuffer("<ul>");
 		try {
-			FileReader fr = new FileReader(file);
-
+			Files.lines(path).forEach( line ->  output.append("<li>" + line + "</li>"));
+			
+			output.append("</ul>");
+			response.setContentType("text/html");
+			response.getWriter().write(output.toString());
 		} catch (Exception ex) {
 			System.out.println(ex);
 		}
