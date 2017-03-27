@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-@WebListener
+// @WebListener
 public class TestListener implements ServletContextListener, HttpSessionListener {
 
     public void sessionCreated(HttpSessionEvent arg0)  { 
