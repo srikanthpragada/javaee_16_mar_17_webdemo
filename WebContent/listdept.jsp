@@ -21,6 +21,7 @@
 		<tr>
 			<th>Id</th>
 			<th>Name</th>
+			<th></th>
 		</tr>
 		<%	
 			while (rs.next()) {
@@ -29,13 +30,13 @@
 		<tr>
 			<td><%=rs.getString(1)%></td>
 			<td><%=rs.getString(2)%></td>
+			<td><a href="employees.jsp?dept=<%=rs.getString(1)%>">Employees</a></td>
 		</tr>
 		<%
 			} // end of while
 			rs.close();
 		%>
 	</table>
-	</center>
 
 </body>
 </html>
