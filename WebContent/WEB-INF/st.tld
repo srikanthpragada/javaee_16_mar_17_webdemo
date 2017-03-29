@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+	<tlib-version>2.0</tlib-version>
+	<jsp-version>2.0</jsp-version>
+	<short-name>st</short-name>
+	<uri>http://www.srikanthtechnologies.com/tags</uri>
+	<description>
+		Tags related to database
+	</description>
+	<tag>
+		<name>jobs</name>
+		<tag-class>tags.JobsHandler</tag-class>
+		<body-content>empty</body-content>
+	</tag>
+
+	<tag>
+		<name>jobs2</name>
+		<tag-class>tags.Jobs2Handler</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>minsal</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+		<attribute>
+			<name>maxsal</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+	</tag>
+	<tag>
+		<name>jobs3</name>
+		<tag-class>tags.Jobs3Handler</tag-class>
+		<body-content>scriptless</body-content>
+	</tag>
+	
+	
+</taglib>  
