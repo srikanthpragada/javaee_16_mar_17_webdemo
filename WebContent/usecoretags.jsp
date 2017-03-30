@@ -10,9 +10,9 @@
 <body>
 
    <c:out value="Hello!" />
-   
-   <c:forEach  var="c"  begin="1"   end="10">
-          ${c} <p/>]
+   <p/>
+   <c:forEach  var="c"  begin="1"   end="10" step="2">
+          ${c} <p/>
     </c:forEach>
 	 
 
