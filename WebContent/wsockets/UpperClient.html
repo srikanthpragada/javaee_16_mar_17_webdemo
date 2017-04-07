@@ -10,7 +10,7 @@
             var inputText;
             var outputText;
             function connect() {
-                wsocket = new WebSocket("ws://localhost:8888/websocketdemo/upper");
+                wsocket = new WebSocket("ws://localhost:8888/webdemo/upper");
                 wsocket.onmessage = showResult;
                 // alert("connected to server");
                 inputText = document.getElementById("inputText");
