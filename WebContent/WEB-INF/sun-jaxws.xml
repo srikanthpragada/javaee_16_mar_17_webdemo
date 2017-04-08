@@ -5,6 +5,9 @@
 	
 	<endpoint name="HelloService" implementation="ws.HelloService"
 		url-pattern="/services/hello" />
+		
+	<endpoint name="EmployeeService" implementation="ws.EmployeeService"
+		url-pattern="/services/employee" />	
 
 
 
