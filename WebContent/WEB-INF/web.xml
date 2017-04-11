@@ -8,6 +8,19 @@
 		<session-timeout>3</session-timeout>
 	</session-config>
 
+    <!--  Configure Mojarra  -->
+    
+    <servlet>
+		<servlet-name>JSF</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>JSF</servlet-name>
+		<url-pattern>/faces/*</url-pattern>
+	</servlet-mapping>
+	
 
     <!--   Configuration related to Metro  -->
     
@@ -18,7 +31,7 @@
 	<servlet>
 		<servlet-name>metro-servlet</servlet-name>
 		<servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
+		<load-on-startup>2</load-on-startup>
 	</servlet>
 
 	<servlet-mapping>
@@ -34,7 +47,7 @@
 			<param-name>jersey.config.server.provider.packages</param-name>
 			<param-value>rest</param-value>
 		</init-param>
-		<load-on-startup>2</load-on-startup>
+		<load-on-startup>3</load-on-startup>
 	</servlet>
 
 	<servlet-mapping>

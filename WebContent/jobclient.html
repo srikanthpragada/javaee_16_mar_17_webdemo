@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Jobs Client</title>
+<script src="ajax/jquery/jquery-3.1.0.js"></script>
+<script>
+	function getDetails() {
+		var promise = $.getJSON("http://localhost:8888/webdemo/rest/jobs/"
+				+ $("#jobid").val(), {}, showResult);
+		promise.fail(showError);
+	}
+
+	function showResult(job) {
+		$("#output").html(job.title);
+	}
+
+	function showError() {
+		$("#output").html("Sorry! Job Not Found!");
+	}
+
+	function deleteJob() {
+
+		$.ajax(
+	       {
+			url : "rest/jobs/" + $("#jobid").val(),
+			method : "delete",
+			complete : showDeleteResult
+		   }
+	    );
+	}
+
+	function showDeleteResult(result) {
+		if (result.status == 204)  //   no content is coming from server
+			$("#output").html("Deleted Successfully");
+		else
+			$("#output").html("Sorry! Could not delete job!");
+	}
+</script>
+</head>
+<body>
+	<h1>Jobs Client</h1>
+	Job ID :
+	<input type="text" id="jobid" />
+	<button onclick="getDetails()">Details</button>
+	<button onclick="deleteJob()">Delete</button>
+	<h2 id="output"></h2>
+
+</body>
+</html>
