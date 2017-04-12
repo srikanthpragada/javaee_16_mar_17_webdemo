@@ -2,31 +2,53 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-  	  xmlns:h="http://xmlns.jcp.org/jsf/html"
-	  xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
 <head>
-  <title>Interest Calculation</title>
+<title>Interest Calculation</title>
+<script src="../ajax/jquery/jquery-3.1.0.js"></script>
+<script>
+	function check() {
+		var amount = $("#amount").val();
+		var rate = $("#rate").val();
+
+		if (amount > 100000) {
+			if (rate > 25) {
+				alert("Invalid Interest Rate");
+				console.error("Invalid Interest Rate");
+			}
+		} else if (rate > 50)
+			alert("Invalid Interest Rate");
+
+	}
+</script>
 </head>
 <body>
 	<h1>Interest Calculation</h1>
 
-    <h:form id="interestForm">
-      Amount <br/>
-      <h:inputText id="amount" value="#{interestBean.amount}"></h:inputText>
-      <p/>
+	<h:form id="interestForm" prependId="false">
+      Amount <br />
+		<h:inputText id="amount" p:type="number" p:required="required"
+			p:title="Amount" value="#{interestBean.amount}"></h:inputText>
+		<p />
                
-      Interest Rate <br/>
-      <h:inputText id="rate" value="#{interestBean.rate}"></h:inputText>
-      <p/>
-      <h:commandButton value="Calculate" 
-                       actionListener="#{interestBean.calculate}"></h:commandButton>
-      <p/>
-      
-      <h3>
-         <h:outputText rendered="#{interestBean.interest > 0}"
-                       value="#{interestBean.interest}"></h:outputText>
-      </h3>
-      
-    </h:form>
+      Interest Rate <br />
+		<h:inputText id="rate" p:type="number" p:required="required"
+			p:onBlur="check()" p:title="Interest Rate"
+			value="#{interestBean.rate}">
+		</h:inputText>
+		<h:message for="rate"></h:message>
+		<p />
+		<h:commandButton value="Calculate"
+			actionListener="#{interestBean.calculate}"></h:commandButton>
+		<p />
+
+		<h3>
+			<h:outputText rendered="#{interestBean.interest > 0}"
+				value="#{interestBean.interest}"></h:outputText>
+		</h3>
+
+	</h:form>
 </body>
 </html>
