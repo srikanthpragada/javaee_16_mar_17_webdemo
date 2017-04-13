@@ -30,6 +30,7 @@
 	<h:form id="interestForm" prependId="false">
       Amount <br />
 		<h:inputText id="amount" p:type="number" p:required="required"
+		    valueChangeListener="#{interestBean.amountChanged}"
 			p:title="Amount" value="#{interestBean.amount}"></h:inputText>
 		<p />
                
@@ -37,6 +38,7 @@
 		<h:inputText id="rate" p:type="number" p:required="required"
 			p:onBlur="check()" p:title="Interest Rate"
 			value="#{interestBean.rate}">
+			 <f:validateDoubleRange minimum="5"></f:validateDoubleRange>
 		</h:inputText>
 		<h:message for="rate"></h:message>
 		<p />

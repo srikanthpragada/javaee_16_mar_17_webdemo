@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+<title>Employees</title>
+<style>
+.redwhite {
+	background-color: red;
+	color: white;
+	font-weight: bold
+}
+.oddrows { background-color:silver}
+.evenrows { background-color:white;}
+</style>
+</head>
+<body>
+	<h1>Employees</h1>
+
+	<h:dataTable border="1" headerClass="redwhite" 
+	    rowClasses= "oddrows,evenrows"
+	   	value="#{employeesBean.employees}" var="emp">
+
+		<h:column>
+			<f:facet name="header">First Name</f:facet>
+            #{emp.first_name}
+        </h:column>
+
+		<h:column>
+			<f:facet name="header">Salary</f:facet>
+            #{emp.salary}
+        </h:column>
+
+		<h:column>
+			<f:facet name="header">Job Id</f:facet>
+            #{emp.job_id}
+        </h:column>
+        
+        
+		<h:column>
+            <a href="empdetails.xhtml?id=#{emp.employee_id}">Details</a>
+        </h:column>
+	</h:dataTable>
+
+</body>
+</html>
