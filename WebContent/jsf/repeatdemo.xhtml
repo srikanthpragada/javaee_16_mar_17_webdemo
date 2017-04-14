@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+<title>Employees</title>
+</head>
+<body>
+	<h1>Employees</h1>
+	<ul>
+		<ui:repeat varStatus="status" value="#{employeesBean.allEmployees}"
+			offset="10" size="20" var="emp">
+			<li>#{status.index + 1}, #{emp.name}, #{emp.salary}</li>
+		</ui:repeat>
+	</ul>
+	<p />
+	<select>
+		<ui:repeat value="#{employeesBean.allEmployees}" var="emp">
+			<option value="#{emp.id}">#{emp.name}</option>
+		</ui:repeat>
+	</select>
+
+
+
+
+</body>
+</html>

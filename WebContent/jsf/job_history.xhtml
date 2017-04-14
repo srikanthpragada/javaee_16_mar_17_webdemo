@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+<title>Employee Job History</title>
+</head>
+<body>
+
+	<f:metadata>
+		<f:viewParam name="empid" value="#{employeesBean.empid}" />
+		<f:viewAction action="#{employeesBean.getJobHistory}" />
+	</f:metadata>
+	<h1>Employee Job History</h1>
+
+    <h:outputText rendered="#{! employeesBean.historyFound}" 
+                       value="Sorry! No Job History Found!" />
+    
+		
+	<h:dataTable border="1" value="#{employeesBean.history}" 
+		var="history"  rendered="#{employeesBean.historyFound}">
+
+		<h:column>
+			<f:facet name="header">Start Date</f:facet>
+            #{history.start_date}
+        </h:column>
+
+		<h:column>
+			<f:facet name="header">End Date</f:facet>
+            #{history.end_date}
+        </h:column>
+
+		<h:column>
+			<f:facet name="header">Job</f:facet>
+            #{history.job_title}
+        </h:column>
+
+		<h:column>
+			<f:facet name="header">Department</f:facet>
+            #{history.department_name}
+        </h:column>
+	</h:dataTable>
+
+</body>
+</html>
