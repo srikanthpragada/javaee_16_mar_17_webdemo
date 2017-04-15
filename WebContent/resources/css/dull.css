@@ -1,0 +1,21 @@
+h2{
+    
+    color:gray;
+}
+
+body {
+    
+     font-family: verdana;
+}
+
+.header {
+    
+    background-color: red;
+    color:white;
+    font-size:30pt;
+}
+
+.menu {
+  
+  background-color:silver;
+}

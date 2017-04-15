@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title> <ui:insert name="title"/></title>
+        <h:outputStylesheet name="dull.css" library="css" />
+    </h:head> 
+    <h:body>
+        <ui:include src="header.html"/>
+        <div class="menu">
+            <a href="firstpage.xhtml">First</a>
+            &nbsp;
+            <a href="secondpage.xhtml">Second </a>
+              &nbsp;
+            <a href="thirdpage.xhtml">Third</a>
+        </div>
+        <p/>
+        <h2> <ui:insert name="title" /> </h2>
+        <ui:insert name="body" />
+        <p/>
+    </h:body>
+</html>
+
